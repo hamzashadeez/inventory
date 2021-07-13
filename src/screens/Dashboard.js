@@ -7,10 +7,21 @@ import { db } from "../utils/firebase";
 
 function Dashboard() {
   const [allProducts, setAllProduct] = useRecoilState(productData);
+  const [orders, setOrder] = useState([])
 
   useEffect(() => {
     db.collection("products").onSnapshot((shot) => {
       setAllProduct(
+        shot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      );
+    });
+  }, []);
+  useEffect(() => {
+    db.collection("orders").onSnapshot((shot) => {
+      setOrder(
         shot.docs.map((doc) => ({
           id: doc.id,
           data: doc.data(),
@@ -28,10 +39,10 @@ function Dashboard() {
           number={allProducts && allProducts.length}
           icon="fa-stethoscope "
         />
-        <DashCard label="Orders" number="10" icon="fa-shopping-cart " />
+        <DashCard label="Orders" number={orders && orders.length} icon="fa-shopping-cart " />
         <DashCard
           label="Out Of Stock"
-          number="3"
+          number="0"
           icon="fa-exclamation-circle "
         />
       </div>
