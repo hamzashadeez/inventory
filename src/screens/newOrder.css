@@ -1,0 +1,63 @@
+.order__main_div {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.submit_order {
+  width: 300px;
+  min-height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40px;
+}
+.form_P {
+  width: 500px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.form_P > label{
+    font-size: 14px;
+}
+
+.pro_duct > p{
+    font-size: 14px;
+}
+.pro_duct > button{
+    font-size: 16px;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background-color: #28a745;
+    cursor: pointer;
+}
+
+
+.pro_duct > button:hover{
+    opacity: 0.7;
+}
+@media screen and (max-width: 960px) {
+  .order__main_div {
+    flex-direction: column;
+  }
+  .submit_order{
+      margin: 0;
+      margin-top: 25px;
+  }
+  .form_P {
+      min-width: none;
+      width: 100%;
+  }
+  .submit_order {
+      min-width: none;
+      width: 100%;
+  }
+}
