@@ -1,0 +1,16 @@
+.dashcard {
+  background-color: white;
+  padding: 20px;
+  cursor: pointer;
+  width: 30%;
+}
+
+@media screen and (max-width: 960px) {
+  .dashcard {
+   
+    padding: 20px;
+    cursor: pointer;
+    width: 80%;
+    margin-bottom: 20px;
+  }
+}

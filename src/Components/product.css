@@ -1,0 +1,21 @@
+.product_item {
+  background-color: white;
+  /* padding: 20px; */
+  cursor: pointer;
+  width: 30%;
+  margin: 0 .76%
+}
+
+.product_item > img{
+    object-fit: contain;
+    width: 100%;
+}
+
+@media screen and (max-width: 960px) {
+  .product_item {
+    padding: 20px;
+    cursor: pointer;
+    width: 90%;
+    margin-bottom: 20px;
+  }
+}
