@@ -12,6 +12,7 @@ import Backdrop from "./Components/Backdrop";
 import SideDrawer from "./Components/SideDrawer";
 import ProductScreen from "./screens/ProductScreen";
 import NewOrder from "./screens/NewOrder";
+import Order from "./screens/Order";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/products" component={Products} />
             <Route path="/orders" component={Orders} />
             <Route path="/product/:id" component={ProductScreen} />
+            <Route path="/order/:id" component={Order} />
             <Route path="/customers" component={Customers} />
             <Route path="/new-order" component={NewOrder} />
           </Switch>
