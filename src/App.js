@@ -4,15 +4,13 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { RecoilRoot, useRecoilState } from "recoil";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Products from "./screens/Products";
+import HomePage from "./screens/HomePage";
 import Dashboard from "./screens/Dashboard";
-import Orders from "./screens/Orders";
-import Customers from "./screens/Customers";
 import Header from "./Components/Header";
 import Backdrop from "./Components/Backdrop";
 import SideDrawer from "./Components/SideDrawer";
-import ProductScreen from "./screens/ProductScreen";
-import NewOrder from "./screens/NewOrder";
-import Order from "./screens/Order";
+import Login from "./screens/Login";
+import Admin from "./screens/Admin";
 
 
 function App() {
@@ -24,16 +22,14 @@ function App() {
       <RecoilRoot>
         <div className="App">
           <Header click={() => setSideToggle(true)} />
+          <div className='my-4'>Invenr</div>
           <Backdrop show={sideToggle} click={() => setSideToggle(false)} />
           <SideDrawer show={sideToggle} click={() => setSideToggle(false)} />
           <Switch>
-            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/admin1238" component={Admin} />
             <Route path="/products" component={Products} />
-            <Route path="/orders" component={Orders} />
-            <Route path="/product/:id" component={ProductScreen} />
-            <Route path="/order/:id" component={Order} />
-            <Route path="/customers" component={Customers} />
-            <Route path="/new-order" component={NewOrder} />
+            <Route path="/login" component={Login} />
           </Switch>
         </div>
       </RecoilRoot>

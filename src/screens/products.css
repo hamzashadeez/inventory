@@ -6,11 +6,32 @@
     /* justify-content: space-between; */
 }
 
+.about{
+    display: flex;
+}
+.about > h4{
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+.about > img{
+    border-radius: 10%;
+}
+
 @media screen and (max-width: 960px) {
     .product__list{
         display: flex;
         align-items: center;
         flex-direction: column;
         
+    }
+}
+@media screen and (max-width: 660px) {
+    .about{
+        display: flex;
+        flex-direction: column;
+    }
+    .about > h4{
+        margin-top: 20px;
+        font-size: 1.1rem;
     }
 }
