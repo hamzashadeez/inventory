@@ -2,25 +2,28 @@ import React from "react";
 import "./product.css";
 import { useRecoilState } from "recoil";
 import { ImagePreview } from "../recoil/Image";
+import { db } from "../utils/firebase";
 import EditIcon from "../assets/edit.png";
 import View from "../assets/view.png";
 import Delete from "../assets/delete.png";
 
 function AdminProduct({
-  data,
   id,
-  showIt,
+  data,
   showEditProduct,
+  showIt,
   hideEditProduct,
   hideProduct,
 }) {
   const [image, setImage] = useRecoilState(ImagePreview);
 
   const deleteProduct = async () => {
-    //   const del = confirm("Are you sure you want to delete this product ?")
-    //   if(del){
-    console.log("deleted");
-    //   }
+      const del = window.confirm("Are you sure you want to delete this product ?")
+      if(del){
+        await db.collection('products').doc(id).delete().then(()=>{
+          alert("deleted");
+        })
+      }
   };
   return (
     <div className="-pb-1 mb-2 shadow-sm bg-white product_item">
