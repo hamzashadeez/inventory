@@ -13,11 +13,29 @@ function Admin() {
   const [showModel, setModel] = React.useState(false);
   const [showAddProduct, setAddProduct] = React.useState(false);
   const [editModal, setEditModal] = React.useState(false);
-  
+  const [search, setSearch] = useState("")
+  const [list, setList] = useState([])
+
 
   const showIt = () => {
     setModel(true);
   };
+
+  const makeSearch = (e) => {
+    setSearch(e.target.value);
+    if(search === ''){
+      setAllProduct(list)
+    }else{
+
+      setAllProduct(
+        list.filter((p) => {
+          // return p.data.name.indexOf(search) !== -1;
+         return p.data.name.toLowerCase().startsWith(search.toLowerCase());
+        })
+      );
+    }
+  };
+
 
   function hideProduct() {
     setAddProduct(false);
@@ -34,6 +52,12 @@ function Admin() {
       .orderBy("timestamp", "desc")
       .onSnapshot((shot) => {
         setAllProduct(
+          shot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        );
+        setList(
           shot.docs.map((doc) => ({
             id: doc.id,
             data: doc.data(),
@@ -63,6 +87,18 @@ function Admin() {
           Add Product
         </button>
       </div>
+      <div className="search__container shadow-sm my-2">
+          <i className='fa fa-search'></i>
+          <input
+            value={search}
+            onChange={(e)=> makeSearch(e)}
+            placeholder="search product"
+            className="search_input border-0 search__input"
+          />
+          <div onClick={()=>{setAllProduct(list); setSearch('')}} className='btn p-1 px-3 btn-light'>
+            <i className='fa fa-close'></i>
+          </div>
+        </div>
       <div className="product__list">
         {allProducts.map((p) => (
           <AdminProduct
