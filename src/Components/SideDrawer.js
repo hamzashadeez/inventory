@@ -24,7 +24,7 @@ function SideDrawer({ show, click }) {
             <HashLink to='/#contact'>Contact</HashLink>
         </li>
         <li onClick={click}>
-            <Link to='/customers'>Admin</Link>
+            <Link to='/login'>Admin</Link>
         </li>
       </ul>
   </div>;
