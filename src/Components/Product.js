@@ -25,7 +25,7 @@ function Product({ data, id, showIt }) {
           setImage(data?.photo);
           showIt()}}>View
           </button>
-          <a href={"https://wa.me/2348032542898?text=Hi Idris,%20I%20need%20this:%20"+window.encodeURIComponent(data?.photo)}
+          <a href={"https://wa.me/2348068606897?text=Hi Idris,%20I%20need%20this:%20"+window.encodeURIComponent(data?.photo)}
            target="_blank" className='btn btn-success px-4 w-100 ml-4'>
              <i className='fa fa-whatsapp'></i>
             </a>
