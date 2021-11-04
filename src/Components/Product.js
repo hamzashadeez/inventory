@@ -9,7 +9,7 @@ function Product({ data, id, showIt }) {
     <div
       className="-pb-1 shadow-sm bg-white product_item"
     >
-      <img alt="" src={data?.photo} />
+      <img alt="" src={data?.photo} style={{ width: "100%", height: "300px", objectFit: "cover" }} />
       <div className="mt-3 px-3">
         <h6 className="mb-0">{data?.name}</h6>
         <div className="mb-0 d-flex mt-2 justify-content-between">
