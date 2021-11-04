@@ -8,7 +8,6 @@ function AddProduct(props) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState(null);
-  const [amount, setAmount] = useState("");
   const [btn, setBtn] = useState(true)
 
   const submit = async (e) => {
@@ -32,19 +31,18 @@ function AddProduct(props) {
               db.collection("products").add({
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                 name,
-                stock: amount,
                 photo: url,
                 price,
               });
 
               setName("");
               setPrice("");
-              setAmount("");
               setImage(null);
               setBtn(true)
               console.log("done");
+              props.hideProduct()
             })
-            .catch((err) => console.log(err));
+            .catch((err) => alert(err.message));
         }
       );
     }else{
@@ -64,6 +62,7 @@ function AddProduct(props) {
             <Form.Control
               placeholder="Product Name"
               value={name}
+              required
               onChange={(e) => setName(e.target.value)}
             />
           </Form.Group>
@@ -73,18 +72,11 @@ function AddProduct(props) {
               placeholder="Product Price"
               type="number"
               value={price}
+              required
               onChange={(e) => setPrice(e.target.value)}
             />
           </Form.Group>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Text className="text-muted">Amount In Stock</Form.Text>
-            <Form.Control
-              placeholder="Amount In Stock"
-              type="number"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-            />
-          </Form.Group>
+
           <input
             type="file"
             className="mb-3 btn"

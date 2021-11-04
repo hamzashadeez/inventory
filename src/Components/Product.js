@@ -1,23 +1,24 @@
 import React from "react";
 import "./product.css";
-import { useHistory, Link } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { ImagePreview } from "../recoil/Image";
 
-function Product({ data, id }) {
-  const history = useHistory();
+function Product({ data, id, showIt }) {
+  const [image, setImage] = useRecoilState(ImagePreview);
   return (
     <div
-      className="pb-1 shadow-sm bg-light product_item"
-      // onClick={() => history.go(`product/${id}`)}
+      className="-pb-1 shadow-sm bg-white product_item"
     >
-      <img alt="" src={data?.photo} />
+      <img alt="" src={data?.photo} style={{ width: "100%", height: "300px", objectFit: "cover" }} />
       <div className="mt-3 px-3">
         <h6 className="mb-0">{data?.name}</h6>
         <div className="mb-0 d-flex mt-2 justify-content-between">
-          <p className="mb-0">${data?.price}</p>
-          <p className="text-success"> {data?.stock} remains</p>
+          <h5 className="mb-0 text-success">NGN{data?.price}</h5>
         </div>
       </div>
-      <Link className='btn btn-light border-1 w-100 mb-2' to={`product/${id}`}>View</Link>
+      <button className='btn btn-light border-1 w-100 mb-2 text-muted' onClick={()=>{
+        setImage(data?.photo);
+        showIt()}}>View</button>
     </div>
   );
 }

@@ -6,11 +6,59 @@
     /* justify-content: space-between; */
 }
 
+.about{
+    display: flex;
+}
+.about > h4{
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+.about > img{
+    border-radius: 10%;
+}
+
+.search__container{
+    position: relative;
+    margin-bottom: 10px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+}
+
+.search__input{
+    margin:0 10px;
+    width: 100%;
+}
+.search__input::placeholder{
+    color: #ccc
+}
+
+.search__input:focus{
+    outline: none !important;
+}
+
+.search__container > i {
+    color: #bbb;
+}
+
+
+
 @media screen and (max-width: 960px) {
     .product__list{
         display: flex;
         align-items: center;
         flex-direction: column;
         
+    }
+}
+@media screen and (max-width: 660px) {
+    .about{
+        display: flex;
+        flex-direction: column;
+    }
+    .about > h4{
+        margin-top: 20px;
+        font-size: 1.1rem;
     }
 }
