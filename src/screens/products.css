@@ -17,6 +17,33 @@
     border-radius: 10%;
 }
 
+.search__container{
+    position: relative;
+    margin-bottom: 10px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+}
+
+.search__input{
+    margin:0 10px;
+    width: 100%;
+}
+.search__input::placeholder{
+    color: #ccc
+}
+
+.search__input:focus{
+    outline: none !important;
+}
+
+.search__container > i {
+    color: #bbb;
+}
+
+
+
 @media screen and (max-width: 960px) {
     .product__list{
         display: flex;
