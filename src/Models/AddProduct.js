@@ -83,7 +83,10 @@ function AddProduct(props) {
             // value={image}
             onChange={(e) => setImage(e.target.files[0])}
           />
-          <button disabled={!btn} className="btn btn-success w-100">Submit</button>
+          <button disabled={!btn}
+           className="btn btn-success w-100">
+             {btn === false? "Uploading...": "Submit"}
+             </button>
         </Form>
       </Modal.Body>
     </Modal>

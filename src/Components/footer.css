@@ -1,0 +1,10 @@
+
+@media screen and (max-width:540px) {
+    .footer__ > h3{
+        font-size: 1.1rem;
+    }
+    .footer__ > p{
+        font-size: .79rem;
+    }
+        
+}
